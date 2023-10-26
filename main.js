@@ -11,6 +11,7 @@ function customerToHTML(customer) {
   return `<div class="customer-card">
             <img src="${customer.picture.large}" class="customerHeadshot">
             <h2 class="customer-name">${customerName}<h2>
+            <a href="mailto:${customer.email}">${customer.email}</a>
             <ul class="customer-info">
               <li class="address-line1">${customer.location.street.number} ${
     customer.location.street.name
@@ -32,7 +33,5 @@ function customerToHTML(customer) {
 let allCustomers = customers
   .map((customer) => customerToHTML(customer))
   .join("\n");
-
-let emailEL = document.createElement("a");
 
 entryPoint.innerHTML = allCustomers;
